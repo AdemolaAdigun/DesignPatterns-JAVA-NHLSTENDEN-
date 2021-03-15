@@ -1,7 +1,6 @@
 package store;
 
 import enums.PizzaType;
-import pizza.Pizza;
 
 import java.util.ArrayList;
 
@@ -18,7 +17,7 @@ public class PizzaMenu {
 
     public void printMenu() {
         for (PizzaType pizzaType: this.pizzaTypes) {
-            System.out.println(pizzaType.getDescription());
+            System.out.println(pizzaType.getPizzaName());
         }
     }
 }

@@ -1,4 +1,9 @@
 package pizza;
 
-public  interface Pizza {
+public interface Pizza {
+    double getPrice();
+    boolean isReady();
+    void setStatus(boolean status);
+    void cook();
+    double estimatePrepTime();
 }
