@@ -7,21 +7,22 @@ public class ChicagoPizza implements Pizza{
     private final static double ESTIMATED_PREP_TIME = 20;
 
     public ChicagoPizza() {
+        this.status = false;
     }
 
     @Override
     public double getPrice() {
-        return 0;
+        return COST;
     }
 
     @Override
     public boolean isReady() {
-        return false;
+        return status;
     }
 
     @Override
     public void setStatus(boolean status) {
-
+        this.status = status;
     }
 
     @Override
@@ -31,6 +32,6 @@ public class ChicagoPizza implements Pizza{
 
     @Override
     public double estimatePrepTime() {
-        return 0;
+        return ESTIMATED_PREP_TIME;
     }
 }
