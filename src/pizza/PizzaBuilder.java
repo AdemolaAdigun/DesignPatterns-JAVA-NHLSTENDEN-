@@ -6,11 +6,23 @@ public class PizzaBuilder {
     }
 
     public Pizza buildPizza(String pizzaName) {
-        return switch (pizzaName) {
-            case "chicago-pizza" -> new ChicagoPizza();
-            case "new-york-pizza" -> new NewYorkPizza();
-            case "veggie-pizza" -> new VeggiePizza();
-            default -> new BasicPizza();
-        };
+        Pizza pizza;
+        switch (pizzaName) {
+            case "chicago-pizza":
+                pizza = new ChicagoPizza();
+                break;
+            case "new-york-pizza":
+                pizza = new NewYorkPizza();
+                break;
+            case "veggie-pizza":
+               pizza = new VeggiePizza();
+               break;
+            case "basic-pizza":
+                pizza = new BasicPizza();
+                break;
+            default:
+                pizza = null;
+        }
+        return pizza;
     }
 }
