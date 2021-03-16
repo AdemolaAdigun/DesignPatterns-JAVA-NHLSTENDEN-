@@ -3,7 +3,44 @@ package toppings;
 import pizza.Pizza;
 
 public class Mushroom extends ToppingDecorator {
-    public Mushroom() {
+    private final static double PRICE = 3.50;
+    private final static double PREP_TIME = 12;
+    private boolean status;
 
+    public Mushroom(Pizza pizza) {
+        super(pizza);
+        this.status = false;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Mushrooms";
+    }
+
+
+    @Override
+    public double getPrice() {
+        return PRICE;
+    }
+
+    @Override
+    public boolean getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    @Override
+    public void cook() {
+        setStatus(true);
+        super.setStatus(true);
+    }
+
+    @Override
+    public double getEstimatePrepTime() {
+        return PREP_TIME;
     }
 }

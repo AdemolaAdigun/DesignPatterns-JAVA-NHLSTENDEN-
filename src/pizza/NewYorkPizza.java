@@ -4,7 +4,7 @@ public class NewYorkPizza implements Pizza  {
 
     private boolean status;
     private final static double COST = 20;
-    private final static double ESTIMATED_PREP_TIME = 20;
+    private final static double ESTIMATED_PREP_TIME = 21;
 
     public NewYorkPizza() {
     }
@@ -15,8 +15,8 @@ public class NewYorkPizza implements Pizza  {
     }
 
     @Override
-    public boolean isReady() {
-        return status;
+    public boolean getStatus() {
+        return false;
     }
 
     @Override
@@ -26,11 +26,11 @@ public class NewYorkPizza implements Pizza  {
 
     @Override
     public void cook() {
-
+        setStatus(true);
     }
 
     @Override
-    public double estimatePrepTime() {
+    public double getEstimatePrepTime() {
         return ESTIMATED_PREP_TIME;
     }
 }

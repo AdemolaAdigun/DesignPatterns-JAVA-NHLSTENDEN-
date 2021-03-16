@@ -15,8 +15,8 @@ public class BasicPizza implements Pizza{
     }
 
     @Override
-    public boolean isReady() {
-        return status;
+    public boolean getStatus() {
+        return false;
     }
 
     @Override
@@ -26,11 +26,11 @@ public class BasicPizza implements Pizza{
 
     @Override
     public void cook() {
-
+        setStatus(true);
     }
 
     @Override
-    public double estimatePrepTime() {
+    public double getEstimatePrepTime() {
         return ESTIMATED_PREP_TIME;
     }
 }

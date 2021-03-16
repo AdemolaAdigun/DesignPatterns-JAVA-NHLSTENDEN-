@@ -2,19 +2,19 @@ package toppings;
 
 import pizza.Pizza;
 
-public class Pepperoni extends ToppingDecorator {
+public class Cheddar extends ToppingDecorator {
     private final static double PRICE = 3.50;
-    private final static double PREP_TIME = 16;
+    private final static double PREP_TIME = 23;
     private boolean status;
 
-    public Pepperoni(Pizza pizza) {
+    public Cheddar(Pizza pizza) {
         super(pizza);
         this.status = false;
     }
 
     @Override
     public String getDescription() {
-        return "Pepperoni";
+        return "Cheddar";
     }
 
     @Override

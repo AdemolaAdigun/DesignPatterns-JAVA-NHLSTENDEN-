@@ -2,8 +2,8 @@ package pizza;
 
 public interface Pizza {
     double getPrice();
-    boolean isReady();
+    boolean getStatus();
     void setStatus(boolean status);
     void cook();
-    double estimatePrepTime();
+    double getEstimatePrepTime();
 }
