@@ -1,10 +1,12 @@
 package order;
 
 import Exceptions.ItemDoesNotExistException;
+import payment.Payment;
 import pizza.*;
 import toppings.*;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Order {
     private final PizzaBuilder pizzaBuilder;
@@ -29,7 +31,7 @@ public class Order {
     }
 
     public boolean getOrderStatus() {
-        return orderStatus;
+        return this.orderStatus;
     }
 
     public void setOrderStatus(boolean orderStatus) {
@@ -40,7 +42,7 @@ public class Order {
         return orders;
     }
 
-    public void decorateAPizza(String itemName, String toppingType) throws ItemDoesNotExistException {
+    public void addDecorationPizza(String itemName, String toppingType) throws ItemDoesNotExistException {
         Pizza pizza = orders.get(itemName);
         Pizza decoratedPizza;
         switch (toppingType) {
@@ -60,5 +62,20 @@ public class Order {
                 throw new ItemDoesNotExistException();
         }
         orders.put(itemName, decoratedPizza);
+    }
+
+    public double calculateCost() {
+        double totalcost = 0.0;
+        for (Map.Entry<String, Pizza> pizzas : orders.entrySet()) {
+            if(pizzas.getValue().getStatus()) {
+                totalcost += pizzas.getValue().getPrice();
+            }
+        }
+        return totalcost;
+    }
+
+    public void payment(Payment payment) {
+        double amount = calculateCost();
+        payment.pay(amount);
     }
 }

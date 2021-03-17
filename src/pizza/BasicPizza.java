@@ -16,7 +16,7 @@ public class BasicPizza implements Pizza{
 
     @Override
     public boolean getStatus() {
-        return false;
+        return this.status;
     }
 
     @Override
@@ -32,5 +32,10 @@ public class BasicPizza implements Pizza{
     @Override
     public double getEstimatePrepTime() {
         return ESTIMATED_PREP_TIME;
+    }
+
+    @Override
+    public String getDescription() {
+       return "Basic pizza";
     }
 }

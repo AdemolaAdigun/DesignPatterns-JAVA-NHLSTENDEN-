@@ -12,7 +12,7 @@ public abstract class ToppingDecorator implements Pizza {
     }
 
     public Pizza getPizza() {
-        return pizza;
+        return this.pizza;
     }
 
     public void setPizza(Pizza pizza) {

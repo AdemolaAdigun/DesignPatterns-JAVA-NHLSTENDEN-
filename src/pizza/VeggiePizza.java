@@ -6,6 +6,7 @@ public class VeggiePizza implements Pizza{
     private final static double COST = 20;
     private final static double ESTIMATED_PREP_TIME = 25;
 
+
     public VeggiePizza() {
         this.status = false;
     }
@@ -17,7 +18,7 @@ public class VeggiePizza implements Pizza{
 
     @Override
     public boolean getStatus() {
-        return false;
+        return this.status;
     }
 
     @Override
@@ -33,5 +34,10 @@ public class VeggiePizza implements Pizza{
     @Override
     public double getEstimatePrepTime() {
         return ESTIMATED_PREP_TIME;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Veggie pizza";
     }
 }

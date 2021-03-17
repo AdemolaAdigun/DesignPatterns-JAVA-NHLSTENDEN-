@@ -14,7 +14,7 @@ public class Cheddar extends ToppingDecorator {
 
     @Override
     public String getDescription() {
-        return "Cheddar";
+        return getPizza().getDescription() + " with Cheddar";
     }
 
     @Override
@@ -34,7 +34,6 @@ public class Cheddar extends ToppingDecorator {
 
     @Override
     public void cook() {
-        setStatus(true);
         super.setStatus(true);
     }
 

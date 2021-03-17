@@ -14,7 +14,7 @@ public class Mushroom extends ToppingDecorator {
 
     @Override
     public String getDescription() {
-        return "Mushrooms";
+        return getPizza().getDescription() + " with Mushrooms";
     }
 
 
@@ -25,7 +25,7 @@ public class Mushroom extends ToppingDecorator {
 
     @Override
     public boolean getStatus() {
-        return status;
+        return this.status;
     }
 
     @Override
@@ -35,7 +35,6 @@ public class Mushroom extends ToppingDecorator {
 
     @Override
     public void cook() {
-        setStatus(true);
         super.setStatus(true);
     }
 

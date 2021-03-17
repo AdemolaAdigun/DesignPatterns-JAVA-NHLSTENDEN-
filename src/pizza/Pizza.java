@@ -6,4 +6,5 @@ public interface Pizza {
     void setStatus(boolean status);
     void cook();
     double getEstimatePrepTime();
+    String getDescription();
 }

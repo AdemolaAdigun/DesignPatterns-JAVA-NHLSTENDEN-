@@ -1,5 +1,5 @@
 package payment;
 
 public interface Payment {
-    void pay(int amount);
+    void pay(double amount);
 }

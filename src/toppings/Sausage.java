@@ -14,7 +14,7 @@ public class Sausage extends ToppingDecorator {
 
     @Override
     public String getDescription() {
-        return "Sausage";
+        return getPizza().getDescription() + " with Sausage";
     }
 
     @Override
@@ -34,7 +34,6 @@ public class Sausage extends ToppingDecorator {
 
     @Override
     public void cook() {
-        setStatus(true);
         super.setStatus(true);
     }
 

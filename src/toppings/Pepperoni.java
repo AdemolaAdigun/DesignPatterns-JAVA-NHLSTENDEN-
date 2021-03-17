@@ -14,7 +14,7 @@ public class Pepperoni extends ToppingDecorator {
 
     @Override
     public String getDescription() {
-        return "Pepperoni";
+        return getPizza().getDescription() + " with Pepperoni";
     }
 
     @Override
@@ -34,7 +34,6 @@ public class Pepperoni extends ToppingDecorator {
 
     @Override
     public void cook() {
-        setStatus(true);
         super.setStatus(true);
     }
 
