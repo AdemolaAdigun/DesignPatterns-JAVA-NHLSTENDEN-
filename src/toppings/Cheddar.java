@@ -34,6 +34,7 @@ public class Cheddar extends ToppingDecorator {
 
     @Override
     public void cook() {
+        setStatus(true);
         super.setStatus(true);
     }
 

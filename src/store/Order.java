@@ -1,4 +1,4 @@
-package order;
+package store;
 
 import Exceptions.ItemDoesNotExistException;
 import payment.Payment;
@@ -42,7 +42,7 @@ public class Order {
         return orders;
     }
 
-    public void addDecorationPizza(String itemName, String toppingType) throws ItemDoesNotExistException {
+    public void addDecorationToPizza(String itemName, String toppingType) throws ItemDoesNotExistException {
         Pizza pizza = orders.get(itemName);
         Pizza decoratedPizza;
         switch (toppingType) {
@@ -64,7 +64,7 @@ public class Order {
         orders.put(itemName, decoratedPizza);
     }
 
-    public double calculateCost() {
+    public double getBill() {
         double totalcost = 0.0;
         for (Map.Entry<String, Pizza> pizzas : orders.entrySet()) {
             if(pizzas.getValue().getStatus()) {
@@ -75,7 +75,16 @@ public class Order {
     }
 
     public void payment(Payment payment) {
-        double amount = calculateCost();
+        double amount = getBill();
         payment.pay(amount);
+        setPaid(true);
+    }
+
+    public boolean isPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(boolean paid) {
+        isPaid = paid;
     }
 }

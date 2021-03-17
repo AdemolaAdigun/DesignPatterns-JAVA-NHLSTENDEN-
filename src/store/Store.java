@@ -1,10 +1,5 @@
 package store;
 
-import order.Order;
-import pizza.Pizza;
-import pizza.PizzaBuilder;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +20,9 @@ public class Store {
 
    public void prepareAllOrders() throws InterruptedException {
       for (Map.Entry<String, Order> order : this.orders.entrySet()) {
+         if(order.getValue().isPaid()) {
          this.oven.prepareOrder(order.getValue());
+         }
       }
    }
 

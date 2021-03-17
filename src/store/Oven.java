@@ -1,7 +1,6 @@
 package store;
 
 import Exceptions.ItemDoesNotExistException;
-import order.Order;
 import pizza.Pizza;
 
 import java.util.Map;
@@ -21,7 +20,7 @@ public class Oven {
     }
 
     public void prepareOrder(Order order) throws InterruptedException {
-        for (Map.Entry<String, Pizza> orderItem : order.getOrders().entrySet()) {
+        for(Map.Entry<String, Pizza> orderItem : order.getOrders().entrySet()) {
             System.out.println("Oven started cooking " + orderItem.getValue().getDescription());
             orderItem.getValue().cook();
             TimeUnit.SECONDS.sleep((long) orderItem.getValue().getEstimatePrepTime());
@@ -40,20 +39,6 @@ public class Oven {
         this.readyStatus = readyStatus;
     }
 
-    public static void main(String[] args) throws ItemDoesNotExistException, InterruptedException {
-        Store store = new Store();
-        Order order = store.createOrder("Kabir");
-        order.addPizza("chicago-pizza", "foo");
-        order.addPizza("veggie-pizza", "te");
-        order.addDecorationPizza("foo", "sausage");
-        order.addDecorationPizza("te", "cheddar");
-        System.out.println(order.findPizza("foo").getStatus());
-        System.out.println(order.findPizza("te").getStatus());
-        Oven oven = new Oven();
-        oven.prepareOrder(order);
-//        System.out.println(order.findPizza("foo").getStatus());
-//        System.out.println(order.findPizza("te").getStatus());
-        System.out.println(oven.readyStatus);
-    }
+
 
 }
