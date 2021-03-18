@@ -30,4 +30,4 @@ Student: Solomon Asezebhobor and Ademola Adigun
 
 Class diagram
 
-![Uml](assests/PizzaSystemFinal.png)
+![Uml](src/assests/PizzaSystemFinal.png)
