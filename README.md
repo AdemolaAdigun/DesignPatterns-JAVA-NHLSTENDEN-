@@ -18,7 +18,7 @@ Student: Solomon Asezebhobor and Ademola Adigun
 
   
 
-  **which patterns are used**
+  ## **Which patterns are used**
 
 - Factory for building the pizza
 
