@@ -3,8 +3,8 @@ package pizza;
 public class VeggiePizza implements Pizza{
 
     private boolean status;
-    private final static double COST = 20;
-    private final static double ESTIMATED_PREP_TIME = 25;
+    private final static double COST = 13;
+    private final static double ESTIMATED_PREP_TIME = 14;
 
 
     public VeggiePizza() {

@@ -17,6 +17,6 @@ public class Main {
         oven.prepareOrder(order);
         System.out.println(order.findPizza("foo").getStatus());
         System.out.println(order.findPizza("te").getStatus());
-        System.out.println(oven.isReadyStatus());
+       System.out.println("Oven status: " + oven.isReadyStatus());
     }
 }

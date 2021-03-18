@@ -30,11 +30,21 @@ public class Store {
       this.oven.prepareOrder(this.orders.get(customerName));
    }
 
-   private Order findOrder(String customerName) {
+   public Order findOrder(String customerName) {
       return orders.get(customerName);
    }
 
-   private void deleteOrder(String customerName) {
+   public void deleteOrder(String customerName) {
       this.orders.remove(customerName);
+   }
+
+   public double getStoreRevenue() {
+      double storeRevenue = 0.0;
+      for (Map.Entry<String, Order> order : this.orders.entrySet()) {
+         if(order.getValue().isPaid()) {
+           storeRevenue += order.getValue().calculateBill();
+         }
+      }
+      return storeRevenue;
    }
 }

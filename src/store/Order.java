@@ -10,24 +10,24 @@ import java.util.Map;
 
 public class Order {
     private final PizzaBuilder pizzaBuilder;
-    private final HashMap<String, Pizza> orders;
+    private final HashMap<String, Pizza> pizzaOrders;
     private boolean orderStatus;
     private boolean isPaid;
 
     public Order() {
         this.pizzaBuilder = new PizzaBuilder();
-        this.orders = new HashMap<>();
+        this.pizzaOrders = new HashMap<>();
         this.orderStatus = false;
         this.isPaid = false;
     }
 
     public void addPizza(String typeOfPizza, String itemName) {
         Pizza newPizza = this.pizzaBuilder.buildPizza(typeOfPizza);
-        orders.put(itemName, newPizza);
+        pizzaOrders.put(itemName, newPizza);
     }
 
     public Pizza findPizza(String itemName) {
-        return orders.get(itemName);
+        return pizzaOrders.get(itemName);
     }
 
     public boolean getOrderStatus() {
@@ -38,12 +38,12 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public HashMap<String, Pizza> getOrders() {
-        return orders;
+    public HashMap<String, Pizza> getPizzaOrders() {
+        return this.pizzaOrders;
     }
 
     public void addDecorationToPizza(String itemName, String toppingType) throws ItemDoesNotExistException {
-        Pizza pizza = orders.get(itemName);
+        Pizza pizza = pizzaOrders.get(itemName);
         Pizza decoratedPizza;
         switch (toppingType) {
             case "sausage":
@@ -61,12 +61,12 @@ public class Order {
             default:
                 throw new ItemDoesNotExistException();
         }
-        orders.put(itemName, decoratedPizza);
+        pizzaOrders.put(itemName, decoratedPizza);
     }
 
-    public double getBill() {
+    public double calculateBill() {
         double totalcost = 0.0;
-        for (Map.Entry<String, Pizza> pizzas : orders.entrySet()) {
+        for (Map.Entry<String, Pizza> pizzas : pizzaOrders.entrySet()) {
             if(pizzas.getValue().getStatus()) {
                 totalcost += pizzas.getValue().getPrice();
             }
@@ -75,7 +75,7 @@ public class Order {
     }
 
     public void payment(Payment payment) {
-        double amount = getBill();
+        double amount = calculateBill();
         payment.pay(amount);
         setPaid(true);
     }

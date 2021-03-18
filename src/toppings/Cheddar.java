@@ -3,7 +3,7 @@ package toppings;
 import pizza.Pizza;
 
 public class Cheddar extends ToppingDecorator {
-    private final static double PRICE = 3.50;
+    private final static double PRICE = 1.50;
     private final static double PREP_TIME = 23;
     private boolean status;
 

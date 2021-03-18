@@ -1,6 +1,5 @@
 package store;
 
-import Exceptions.ItemDoesNotExistException;
 import pizza.Pizza;
 
 import java.util.Map;
@@ -20,7 +19,7 @@ public class Oven {
     }
 
     public void prepareOrder(Order order) throws InterruptedException {
-        for(Map.Entry<String, Pizza> orderItem : order.getOrders().entrySet()) {
+        for(Map.Entry<String, Pizza> orderItem : order.getPizzaOrders().entrySet()) {
             System.out.println("Oven started cooking " + orderItem.getValue().getDescription());
             orderItem.getValue().cook();
             TimeUnit.SECONDS.sleep((long) orderItem.getValue().getEstimatePrepTime());

@@ -3,7 +3,7 @@ package toppings;
 import pizza.Pizza;
 
 public class Mushroom extends ToppingDecorator {
-    private final static double PRICE = 3.50;
+    private final static double PRICE = 3.20;
     private final static double PREP_TIME = 12;
     private boolean status;
 
