@@ -4,9 +4,30 @@ Student: Solomon Asezebhobor and Ademola Adigun
 
 ## **About the Pizza System**
 
-**which patterns are used**
+ The pizza system is made up of 18 classes and its purpose is serve as a system to be used by a pizza store to
+ be able to do the followings:
+- Creating pizzas  
 
-- Factory for build the pizza
+- Decorating pizza with toppings of the users choice
+
+- Keep tracks of customer orders
+
+- Prepare the orders
+
+- Provide payment option per order
+
+  
+
+  **which patterns are used**
+
+- Factory for building the pizza
+
 - Strategy for the payment system
+
 - Observer for setting the pizza order status after Oven is done preparing Orders
+
 - Decorator for add toppings to the pizza
+
+Class diagram
+
+![Uml](assests/PizzaSystemFinal.png)
