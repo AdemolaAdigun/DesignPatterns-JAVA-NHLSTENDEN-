@@ -1,11 +1,12 @@
+import store.Order;
 import store.Store;
-import utility.ValidPizzaName;
 
 import java.util.Scanner;
 
 public class RunApplication {
     //declare variables needed
     private Store store;
+    private Order order;
 
     //Scanner and commands
     private Scanner userInput;
@@ -24,7 +25,7 @@ public class RunApplication {
         this.welcomeMessage();
     }
 
-    private void welcomeMessage() {
+    public void welcomeMessage() {
         System.out.println("Welcome to our pizza system.");
         System.out.print("Press 1 to start and create a store or 0 to exit: ");
         startCommand = userInput.nextInt();
@@ -67,9 +68,9 @@ public class RunApplication {
         orderCommand = userInput.nextLine();
         switch (orderCommand.toLowerCase()) {
             case "y" -> {
-                System.out.print("Enter the name of the person placing the order: ");
+                System.out.print("enter the name of the person placing the order: ");
                 orderName = userInput.nextLine();//get orderName
-                store.createOrder(orderName);//save order name
+                order = store.createOrder(orderName);//save order name
                 System.out.println("Order created with orderName " + orderName);
                 this.amountOfPizzaToOrder();
             }
@@ -87,45 +88,19 @@ public class RunApplication {
         System.out.print("How many pizza do you want: ");
         setUserInput(new Scanner(System.in));//set a new input inside the scanner
         amountOfPizza = userInput.nextInt();//get amount of pizza
-        System.out.print("List of available pizza: \nchicago-pizza. \nnew-york-pizza. \nveggie-pizza.\nbasic-pizza.\n");
         for (int i = 1; i <= amountOfPizza; i++) {
             System.out.print("Enter pizza " + i + ": ");
-            //keeping repeating if not valid pizza name
-            do{
-            //getPizzaEntered();
-                setUserInput(new Scanner(System.in));//set a new input inside the scanner
-                pizzaName = userInput.nextLine();//getting pizzaName
-            if(!ValidPizzaName.namesOfValidPizza().contains(pizzaName)) {//check to not print again it when statement is satisfied
-                System.out.print("Enter pizza name again not part of list: ");
-              }
-             } while (!ValidPizzaName.namesOfValidPizza().contains(pizzaName));
+            //set a new input inside the scanner
+            setUserInput(new Scanner(System.in));
+            pizzaName = userInput.nextLine();//getting pizzaName
 
-            System.out.print("Enter item name for " + pizzaName + " ");//pizza item
+            //pizza item
+            System.out.print("Enter item name for: " + pizzaName + " ");
             itemName = userInput.nextLine();//getting pizzaItemName
-            store.findOrder(orderName).addPizza(pizzaName, itemName);//find order and add pizza
+            order.addPizza(pizzaName, itemName);
 
         }
     }
-
-    private void decoratePizza() {
-
-    }
-//    private void getPizzaEntered() {
-//        setUserInput(new Scanner(System.in));//set a new input inside the scanner
-//        pizzaName = userInput.nextLine();//getting pizzaName
-//        checkIfUserEnterInvalidPizza(pizzaName);
-//    }
-//
-//    private void checkIfUserEnterInvalidPizza(String pizzaName) {
-//
-//        do {
-//            System.out.print("Enter pizza name again not part of list: ");
-//            if (!ValidPizzaName.namesOfValidPizza().contains(pizzaName)) {
-//                this.amountOfPizzaToOrder();
-//            }
-//        } while (!ValidPizzaName.namesOfValidPizza().contains(pizzaName));
-//    }
-
 
     //TODO if good this way, adding topping decoration will be implemented like the rest
 
