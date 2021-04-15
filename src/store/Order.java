@@ -7,8 +7,9 @@ import toppings.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
-public class Order {
+public class Order implements Subject_Order {
     private final PizzaBuilder pizzaBuilder;
     private final HashMap<String, Pizza> pizzaOrders;
     private boolean orderStatus;
@@ -28,6 +29,14 @@ public class Order {
 
     public Pizza findPizza(String itemName) {
         return pizzaOrders.get(itemName);
+    }
+
+    public double getOrderEstimatedPreparationTime() {
+        double totalTime = 0;
+        for(Map.Entry<String, Pizza> orderItem : this.getPizzaOrders().entrySet()) {
+            totalTime += orderItem.getValue().getEstimatePrepTime();
+        }
+        return totalTime;
     }
 
     public boolean getOrderStatus() {
@@ -65,13 +74,13 @@ public class Order {
     }
 
     public double calculateBill() {
-        double totalcost = 0.0;
+        double totalCost = 0.0;
         for (Map.Entry<String, Pizza> pizzas : pizzaOrders.entrySet()) {
-            if(pizzas.getValue().getStatus()) {
-                totalcost += pizzas.getValue().getPrice();
+            if (pizzas.getValue().getStatus()) {
+                totalCost += pizzas.getValue().getPrice();
             }
         }
-        return totalcost;
+        return totalCost;
     }
 
     public void payment(Payment payment) {
@@ -86,5 +95,19 @@ public class Order {
 
     public void setPaid(boolean paid) {
         isPaid = paid;
+    }
+
+    @Override
+    public void cookOrder() throws InterruptedException {
+        for(Map.Entry<String, Pizza> orderItem : this.getPizzaOrders().entrySet()) {
+            orderItem.getValue().cook();
+            TimeUnit.SECONDS.sleep((long) orderItem.getValue().getEstimatePrepTime());
+        }
+        this.setOrderStatus(true);
+    }
+
+    @Override
+    public boolean getAPizzaStatus(String itemName) {
+        return this.findPizza(itemName).getStatus();
     }
 }
