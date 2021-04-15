@@ -123,6 +123,26 @@ public class RunApplication {
                 store.findOrder(userName).addDecorationToPizza(itemName, topping);
                 //this.prepareOrder();
     }
+
+    private void prepareOrder() throws ItemDoesNotExistException, InterruptedException  {
+        System.out.println("Enter 1 to add another pizza to order or 2 to checkout order?");
+        setUserInput(new Scanner(System.in));
+        orderCommand = userInput.nextLine();
+        switch (orderCommand.toLowerCase()) {
+            case "1" -> {
+                this.createOrder();
+            }
+            case "2" -> {
+                this.store.prepareParticularOrder(userName);
+
+            }
+        }
+    }
+
+    private void makePayment() {
+        System.out.println("Select a payment method: \nPaypal \nBank Card");
+        setUserInput(new Scanner(System.in));
+    }
 //    private void getPizzaEntered() {
 //        setUserInput(new Scanner(System.in));//set a new input inside the scanner
 //        pizzaName = userInput.nextLine();//getting pizzaName
