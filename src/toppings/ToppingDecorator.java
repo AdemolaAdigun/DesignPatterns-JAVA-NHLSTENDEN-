@@ -18,7 +18,19 @@ public abstract class ToppingDecorator implements Pizza {
         this.pizza = pizza;
     }
 
-    public abstract String getDescription();
+    @Override
+    public boolean getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public String getDescription() {
+        return this.pizza.getDescription();
+    }
 
     public double getEstimatePrepTime(){
         return this.pizza.getEstimatePrepTime();
@@ -27,10 +39,5 @@ public abstract class ToppingDecorator implements Pizza {
     @Override
     public double getPrice() {
         return this.pizza.getPrice();
-    }
-
-    @Override
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 }

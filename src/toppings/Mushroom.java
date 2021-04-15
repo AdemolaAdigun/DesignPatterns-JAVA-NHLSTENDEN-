@@ -5,42 +5,28 @@ import pizza.Pizza;
 public class Mushroom extends ToppingDecorator {
     private final static double PRICE = 3.20;
     private final static double PREP_TIME = 12;
-    private boolean status;
 
     public Mushroom(Pizza pizza) {
         super(pizza);
-        this.status = false;
     }
 
     @Override
     public String getDescription() {
-        return getPizza().getDescription() + " with Mushrooms";
+        return super.getDescription() + " with Mushrooms";
     }
-
 
     @Override
     public double getPrice() {
-        return PRICE;
-    }
-
-    @Override
-    public boolean getStatus() {
-        return this.status;
-    }
-
-    @Override
-    public void setStatus(boolean status) {
-        this.status = status;
+        return super.getPrice() + PRICE;
     }
 
     @Override
     public void cook() {
-        setStatus(true);
         super.setStatus(true);
     }
 
     @Override
     public double getEstimatePrepTime() {
-        return PREP_TIME;
+        return super.getEstimatePrepTime() + PREP_TIME;
     }
 }

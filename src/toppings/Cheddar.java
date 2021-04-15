@@ -5,41 +5,28 @@ import pizza.Pizza;
 public class Cheddar extends ToppingDecorator {
     private final static double PRICE = 1.50;
     private final static double PREP_TIME = 23;
-    private boolean status;
 
     public Cheddar(Pizza pizza) {
         super(pizza);
-        this.status = false;
     }
 
     @Override
     public String getDescription() {
-        return getPizza().getDescription() + " with Cheddar";
+        return super.getDescription() + " with Cheddar";
     }
 
     @Override
     public double getPrice() {
-        return PRICE;
-    }
-
-    @Override
-    public boolean getStatus() {
-        return status;
-    }
-
-    @Override
-    public void setStatus(boolean status) {
-        this.status = status;
+        return super.getPrice() + PRICE;
     }
 
     @Override
     public void cook() {
-        setStatus(true);
         super.setStatus(true);
     }
 
     @Override
     public double getEstimatePrepTime() {
-        return PREP_TIME;
+        return super.getEstimatePrepTime() + PREP_TIME;
     }
 }
