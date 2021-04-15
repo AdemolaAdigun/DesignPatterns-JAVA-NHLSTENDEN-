@@ -1,9 +1,6 @@
 package store;
 
-import pizza.Pizza;
-
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import store.order.Order;
 
 public class Oven {
     private boolean readyStatus;

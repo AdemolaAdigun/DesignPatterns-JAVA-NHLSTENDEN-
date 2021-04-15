@@ -1,4 +1,4 @@
-package store;
+package store.order;
 
 import Exceptions.ItemDoesNotExistException;
 import payment.Payment;

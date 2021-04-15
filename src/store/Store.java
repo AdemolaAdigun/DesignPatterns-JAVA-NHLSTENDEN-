@@ -1,5 +1,7 @@
 package store;
 
+import store.order.Order;
+
 import java.util.HashMap;
 import java.util.Map;
 

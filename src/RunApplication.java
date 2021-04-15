@@ -1,4 +1,4 @@
-import store.Order;
+import store.order.Order;
 import store.Store;
 
 import java.util.Scanner;

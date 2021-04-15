@@ -1,4 +1,4 @@
-package store;
+package store.order;
 
 public interface Subject_Order {
     void cookOrder() throws InterruptedException;
