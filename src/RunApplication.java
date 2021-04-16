@@ -125,7 +125,7 @@ public class RunApplication {
     }
 
     private void prepareOrder() throws ItemDoesNotExistException, InterruptedException  {
-        System.out.println("Enter 1 to add another pizza to order or 2 to checkout order?");
+        System.out.print("Enter 1 to add another pizza to order or 2 to checkout current order?");
         setUserInput(new Scanner(System.in));
         orderCommand = userInput.nextLine();
         switch (orderCommand.toLowerCase()) {
@@ -139,10 +139,10 @@ public class RunApplication {
         }
     }
 
-    private void makePayment() {
-        System.out.println("Select a payment method: \nPaypal \nBank Card");
-        setUserInput(new Scanner(System.in));
-    }
+//    private void makePayment() {
+//        System.out.print("Select a payment method: \nPaypal \nBank Card");
+//        setUserInput(new Scanner(System.in));
+//    }
 //    private void getPizzaEntered() {
 //        setUserInput(new Scanner(System.in));//set a new input inside the scanner
 //        pizzaName = userInput.nextLine();//getting pizzaName
