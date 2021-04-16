@@ -44,17 +44,4 @@ public class Paypal implements Payment {
         System.out.println("paid " + amount + " with PayPal");
     }
 
-    private void confirmEmail() {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Enter email to confirm: ");
-//        String e = scanner.nextLine();
-//
-//        if(!e.equals(getEmail())) {
-//            System.out.println("email is incorrect");
-//        }
-//        else {
-//            System.out.println("payment successful");
-//        }
-    }
-
 }

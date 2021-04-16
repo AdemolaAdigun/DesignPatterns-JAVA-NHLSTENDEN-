@@ -11,10 +11,6 @@ public class BankCard implements Payment {
         this.cardNumber = cardNumber;
     }
 
-    public BankCard(){
-
-    }
-
     public String getName() {
         return this.name;
     }
@@ -39,7 +35,7 @@ public class BankCard implements Payment {
         //keep repeating until bank card is correct
         do {
             bankCardToConfirm = scanner.nextInt();
-            if(bankCardToConfirm != getCardNumber())
+            if (bankCardToConfirm != getCardNumber())
                 System.out.print("Bank card incorrect enter again: ");
 
         } while (bankCardToConfirm != getCardNumber());

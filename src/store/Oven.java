@@ -1,6 +1,6 @@
 package store;
 
-import store.order.Order;
+import store.order.SubjectOrder;
 
 public class Oven {
     private boolean readyStatus;
@@ -9,14 +9,10 @@ public class Oven {
         this.readyStatus = false;
     }
 
-    public void prepareOrder(Order order) throws InterruptedException {
+    public void prepareOrder(SubjectOrder order) throws InterruptedException {
         this.setReadyStatus(false);
         order.cookOrder();
         this.setReadyStatus(true);
-    }
-
-    public boolean isReadyStatus() {
-        return this.readyStatus;
     }
 
     public void setReadyStatus(boolean readyStatus) {

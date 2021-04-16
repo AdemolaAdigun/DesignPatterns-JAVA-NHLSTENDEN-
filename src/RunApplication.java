@@ -2,12 +2,10 @@ import Exceptions.ItemDoesNotExistException;
 import payment.BankCard;
 import payment.Payment;
 import payment.Paypal;
-import pizza.Pizza;
 import store.Store;
 import store.order.Order;
 import utility.Menu;
 
-import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -20,13 +18,11 @@ public class RunApplication {
     //Scanner and commands
     private Scanner userInput;
     private int startCommand;
-
-    //thinking of taking this variable to order class or any appropriate class
     private String orderCommand;
     private String customerName;
     private String paymentOption;
     private String pizzaName;
-    private String itemNameEntered;
+    private String orderItemName;
     private String topping;
 
     /**
@@ -42,12 +38,12 @@ public class RunApplication {
         this.customerName = "";
         this.paymentOption = "";
         this.pizzaName = "";
-        this.itemNameEntered = "";
+        this.orderItemName = "";
         this.topping = "";
     }
 
     /**
-     * Initial step
+     * Initial step when application starts
      * @throws ItemDoesNotExistException
      * @throws InterruptedException
      */
@@ -125,9 +121,9 @@ public class RunApplication {
 
         System.out.print("Enter item name for " + this.pizzaName + " ");//pizza item
         setUserInput(new Scanner(System.in));
-        this.itemNameEntered = userInput.nextLine();//getting pizzaItemName
-        this.store.findOrder(this.customerName).addPizza(this.pizzaName, this.itemNameEntered);//find order and add pizza
-        this.decoratePizza(this.itemNameEntered);
+        this.orderItemName = userInput.nextLine();//getting pizzaItemName
+        this.store.findOrder(this.customerName).addPizza(this.pizzaName, this.orderItemName);//find order and add pizza
+        this.decoratePizza(this.orderItemName);
     }
 
     /**
@@ -166,16 +162,16 @@ public class RunApplication {
             case "2" -> {
                 double bill = order.calculateBill();
                 System.out.print("Your bill is " + bill + ", select a payment method. \nEnter 1 for bank-card and 2 for paypal ");
-                setUserInput(new Scanner(System.in));
-                paymentOption = userInput.nextLine();
+                setUserInput(new Scanner(System.in));//set a new input inside the scanner
+                paymentOption = userInput.nextLine();//get payment option selected
                 switch (paymentOption.toLowerCase()) {
                     case "1" -> {
                         System.out.print("Enter your IBAN ");
                         setUserInput(new Scanner(System.in));
                         int iban = userInput.nextInt();
-                        Payment payment = new BankCard(customerName, iban);
+                        Payment payment = new BankCard(customerName, iban);//create a bank card when option selected
                         this.store.findOrder(customerName).payment(payment);
-                        this.prep(this.store.findOrder(customerName));
+                        this.orderPrep(this.store.findOrder(customerName));
                     }
                     case "2" -> {
                         System.out.print("Enter your paypal email ");
@@ -184,9 +180,9 @@ public class RunApplication {
                         System.out.print("Enter your paypal password ");
                         setUserInput(new Scanner(System.in));
                         String password = userInput.nextLine();
-                        Payment payment = new Paypal(email, password);
+                        Payment payment = new Paypal(email, password);//create a paypapl when option selected
                         this.store.findOrder(customerName).payment(payment);
-                        this.prep(this.store.findOrder(customerName));
+                        this.orderPrep(this.store.findOrder(customerName));
                     }
                 }
             }
@@ -199,7 +195,7 @@ public class RunApplication {
      * @throws InterruptedException
      * @throws ItemDoesNotExistException
      */
-    private void prep(Order order) throws InterruptedException, ItemDoesNotExistException {
+    private void orderPrep(Order order) throws InterruptedException, ItemDoesNotExistException {
         if (order.isPaid()) { //If order is paid then start cooking
             double time = order.getOrderEstimatedPreparationTime();
             System.out.print("Sit back relax while we prepare your order. \n" +

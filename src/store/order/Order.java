@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class Order implements Subject_Order {
+public class Order implements SubjectOrder {
     private final PizzaBuilder pizzaBuilder;
     private final HashMap<String, Pizza> pizzaOrders;
     private Payment payment;
@@ -38,10 +38,6 @@ public class Order implements Subject_Order {
             totalTime += orderItem.getValue().getEstimatePrepTime();
         }
         return totalTime;
-    }
-
-    public boolean getOrderStatus() {
-        return this.orderStatus;
     }
 
     public void setOrderStatus(boolean orderStatus) {

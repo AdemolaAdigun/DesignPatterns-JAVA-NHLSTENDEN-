@@ -6,6 +6,7 @@ Student: Solomon Asezebhobor and Ademola Adigun
 
  The pizza system is made up of 18 classes and its purpose is serve as a system to be used by a pizza store to
  be able to do the followings:
+
 - Creating pizzas  
 
 - Decorating pizza with toppings of the users choice
@@ -27,6 +28,7 @@ Student: Solomon Asezebhobor and Ademola Adigun
 - Observer for setting the pizza order status after Oven is done preparing Orders
 
 - Decorator for add toppings to the pizza
+
 
 Class diagram
 

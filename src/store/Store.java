@@ -20,18 +20,6 @@ public class Store {
       return order;
    }
 
-   public void prepareAllOrders() throws InterruptedException {
-      for (Map.Entry<String, Order> order : this.orders.entrySet()) {
-         if(order.getValue().isPaid()) {
-         this.oven.prepareOrder(order.getValue());
-         }
-      }
-   }
-
-   public void prepareParticularOrder(String customerName) throws InterruptedException {
-      this.oven.prepareOrder(this.orders.get(customerName));
-   }
-
    public Order findOrder(String customerName) {
       return orders.get(customerName);
    }

@@ -1,6 +1,6 @@
 package store.order;
 
-public interface Subject_Order {
+public interface SubjectOrder {
     void cookOrder() throws InterruptedException;
     boolean getAPizzaStatus(String itemName);
 }
