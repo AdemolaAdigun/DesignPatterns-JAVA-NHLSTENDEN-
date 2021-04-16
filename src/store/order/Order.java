@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class Order implements Subject_Order {
     private final PizzaBuilder pizzaBuilder;
     private final HashMap<String, Pizza> pizzaOrders;
+    private Payment payment;
     private boolean orderStatus;
     private boolean isPaid;
 
@@ -76,16 +77,16 @@ public class Order implements Subject_Order {
     public double calculateBill() {
         double totalCost = 0.0;
         for (Map.Entry<String, Pizza> pizzas : pizzaOrders.entrySet()) {
-            if (pizzas.getValue().getStatus()) {
                 totalCost += pizzas.getValue().getPrice();
-            }
         }
         return totalCost;
+
     }
 
     public void payment(Payment payment) {
+        this.payment = payment;
         double amount = calculateBill();
-        payment.pay(amount);
+        this.payment.pay(amount);
         setPaid(true);
     }
 
