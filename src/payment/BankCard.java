@@ -11,6 +11,10 @@ public class BankCard implements Payment {
         this.cardNumber = cardNumber;
     }
 
+    public BankCard(){
+
+    }
+
     public String getName() {
         return this.name;
     }
