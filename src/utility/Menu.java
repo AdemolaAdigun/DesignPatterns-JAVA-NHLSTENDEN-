@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Menu {
 
-    public static ArrayList<String> AvailablePizza() {
+    public static ArrayList<String> availablePizza() {
         ArrayList<String> nameOfPizzas = new ArrayList<>();
 
         nameOfPizzas.add("chicago-pizza");
@@ -18,7 +18,7 @@ public class Menu {
         return nameOfPizzas;
     }
 
-    public static ArrayList<String> AvailableTopping() {
+    public static ArrayList<String> availableTopping() {
         ArrayList<String> nameOfToppings = new ArrayList<>();
 
         nameOfToppings.add("sausage");

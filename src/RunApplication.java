@@ -1,9 +1,7 @@
 import Exceptions.ItemDoesNotExistException;
-import pizza.Pizza;
 import store.Store;
 import utility.Menu;
 
-import java.util.Map;
 import java.util.Scanner;
 
 public class RunApplication {
@@ -100,10 +98,10 @@ public class RunApplication {
         do {
             setUserInput(new Scanner(System.in));//set a new input inside the scanner
             pizzaName = userInput.nextLine();//getting pizzaName
-            if (!Menu.AvailablePizza().contains(pizzaName)) {//check to not print again it when statement is satisfied
+            if (!Menu.availablePizza().contains(pizzaName)) {//check to not print again it when statement is satisfied
                 System.out.print("Enter pizza name again not part of list: ");
             }
-        } while (!Menu.AvailablePizza().contains(pizzaName));
+        } while (!Menu.availablePizza().contains(pizzaName));
 
         System.out.print("Enter item name for " + pizzaName + " ");//pizza item
         itemNameEntered = userInput.nextLine();//getting pizzaItemName
@@ -116,9 +114,9 @@ public class RunApplication {
         do {
             setUserInput(new Scanner(System.in));//set a new input inside the scanner
             topping = userInput.nextLine();//get toppings
-            if (!Menu.AvailableTopping().contains(topping))
+            if (!Menu.availableTopping().contains(topping))
                 System.out.print("Enter toppings name again not part of list: ");
-        } while (!Menu.AvailableTopping().contains(topping));
+        } while (!Menu.availableTopping().contains(topping));
 
         store.findOrder(userName).addDecorationToPizza(itemName, topping);
         this.prepareOrder();
